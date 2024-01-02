@@ -13,6 +13,17 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-template<typename T>
+#include <algorithm>
+#include <string>
+#include <iterator>
+#include <stdexcept>
 
+template<typename T>
+typename T::const_iterator easyfind(T const& container, int toFind)
+{
+    typename T::const_iterator it = std::find(container.begin(), container.end(), toFind);
+    if (it == container.end())
+        throw (std::runtime_error(std::string("Not find")));
+    return (it);
+}
 #endif
