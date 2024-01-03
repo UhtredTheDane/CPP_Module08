@@ -6,14 +6,19 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:25:19 by agengemb          #+#    #+#             */
-/*   Updated: 2023/12/29 14:25:48 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:14:28 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-typedef unsgined int size_t;
+#include <vector>
+#include <cstddef>
+#include <string>
+#include <iostream>
+#include <numeric>
+#include <algorithm>
 
 class Span
 {
@@ -29,7 +34,7 @@ class Span
 		Span& operator=(Span const& toAffect);
 		~Span(void);
 		void	addNumber(int number);
-		void	addSeveralNumber(int *array);
+		void	addSeveralNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		size_t	shortestSpan(void);
 		size_t	longestSpan(void);
 
