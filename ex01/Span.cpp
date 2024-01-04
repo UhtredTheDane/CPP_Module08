@@ -29,9 +29,9 @@ Span& Span::operator=(Span const& toAffect)
 {
     if (this != &toAffect)
     {
-	std::vector<int> array(toAffect.array);
-	this->array = array;
-	max_size = toAffect.max_size;
+		std::vector<int> array(toAffect.array);
+		this->array = array;
+		max_size = toAffect.max_size;
     }
     return (*this);
 }
@@ -47,11 +47,6 @@ void	Span::addNumber(int number)
 		array.push_back(number);
 	else
 		throw (std::out_of_range(std::string("Full Span")));
-}
-
-void	Span::addSeveralNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-	array.insert(array.end(), begin, end);
 }
 
 size_t	Span::shortestSpan(void)
@@ -73,4 +68,21 @@ size_t	Span::longestSpan(void)
 	max = std::max_element(array.begin(), array.end());
 	min = std::min_element(array.begin(), array.end());
 	return(*max - *min);
+}
+
+std::vector<int>::const_iterator Span::getBegin(void) const
+{
+	return (array.begin());
+}
+
+std::vector<int>::const_iterator Span::getEnd(void) const
+{
+	return (array.end());
+}
+
+std::ostream &operator<<(std::ostream &flux, Span const& b)
+{
+	for (std::vector<int>::const_iterator it = b.getBegin(); it != b.getEnd(); ++it)
+		flux << *it << " ";
+	return (flux);
 }

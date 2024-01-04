@@ -13,13 +13,14 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-#include <vector>
-#include <cstddef>
-#include <string>
-#include <iostream>
-#include <numeric>
-#include <algorithm>
-
+# include <vector>
+# include <cstddef>
+# include <string>
+# include <iostream>
+# include <numeric>
+# include <algorithm>
+# include <stdexcept>
+# include <iterator>
 class Span
 {
 	private:
@@ -34,9 +35,21 @@ class Span
 		Span& operator=(Span const& toAffect);
 		~Span(void);
 		void	addNumber(int number);
-		void	addSeveralNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		size_t	shortestSpan(void);
 		size_t	longestSpan(void);
+		std::vector<int>::const_iterator getBegin(void) const;
+		std::vector<int>::const_iterator getEnd(void) const;
+
+		template <typename T>
+		void	addSeveralNumbers(typename T::const_iterator begin, typename T::const_iterator end)
+		{
+			int range = std::distance(begin, end);
+			if (range <= 0)
+				throw (std::range_error(std::string("Bad range")));
+			array.insert(array.end(), begin, end);
+		}
 
 };
+
+std::ostream &operator<<(std::ostream &flux, Span const& b);
 #endif
