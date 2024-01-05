@@ -23,13 +23,13 @@ int main(void)
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
+	std::cout << "top of mstack: " << mstack.top() << std::endl;
 	mstack.pop();
-	std::cout << mstack.size() << std::endl;
+	std::cout << "size of mstack: " << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
+
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
@@ -37,9 +37,22 @@ int main(void)
 	--it;
 	while (it != ite)
 	{
-		std::cout << *it << std::endl;
+		std::cout << *it << " ";
 		++it;
 	}
+	std::cout << std::endl;
+
 	std::stack<int> s(mstack);
+	std::cout << "e's adress: ";
+	e.getPtrStack();
+	std::cout << "mstack's adress: ";
+	mstack.getPtrStack();
+	
+	MutantStack<int> t;
+	t = e;
+	std::cout << "e's adress: ";
+	e.getPtrStack();
+	std::cout << "t's adress: ";
+	t.getPtrStack();
 	return (0);
 }
