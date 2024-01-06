@@ -80,3 +80,68 @@ typename std::stack<T>::container_type::const_reverse_iterator MutantStack<T>::c
 {
     return (std::stack<T>::c.crend());
 }
+
+template <typename T>
+void test_regular_iterator(MutantStack<T>& mstack)
+{
+	MutantStack<T>::iterator it = mstack.begin();
+	MutantStack<T>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << " ";
+		++it;
+	}
+	std::cout << std::endl;
+}
+
+template <typename T>
+void test_const_iterator(MutantStack<T>& mstack)
+{
+	MutantStack<T>::const_iterator it = mstack.cbegin();
+	MutantStack<T>::const_iterator ite = mstack.cend();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << " ";
+		//*it = *it * 2;
+		++it;
+	}
+	std::cout << std::endl;
+}
+
+template <typename T>
+void test_reverse_iterator(MutantStack<T>& mstack)
+{
+	MutantStack<T>::reverse_iterator it = mstack.rbegin();
+	MutantStack<T>::reverse_iterator ite = mstack.rend();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << " ";
+		++it;
+	std::cout << std::endl;
+}
+
+template <typename T>
+void test_copy_constructor(MutantStack<T>& mstack)
+{
+	std::stack<T> temp(mstack);
+	std::cout << "temp's adress: ";
+	temp.getPtrStack();
+	std::cout << "mstack's adress: ";
+	mstack.getPtrStack();
+}
+template <typename T>
+void test_assignment_operator(MutantStack<T>& mstack)
+{
+	MutantStack<T> temp;
+	temp = mstack;
+	std::cout << "mstack's adress: ";
+	e.getPtrStack();
+	std::cout << "t's adress: ";
+	t.getPtrStack();
+}
