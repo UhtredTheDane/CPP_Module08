@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:25:19 by agengemb          #+#    #+#             */
-/*   Updated: 2024/01/03 18:14:28 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:35:29 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ class Span
 		std::vector<int>::const_iterator getEnd(void) const;
 
 		template <typename T>
-		void	addSeveralNumbers(typename T::const_iterator begin, typename T::const_iterator end)
-		{
-			int range = std::distance(begin, end);
-			if (range <= 0)
-				throw (std::range_error(std::string("Bad range")));
-			array.insert(array.end(), begin, end);
-		}
+			void	addSeveralNumbers(typename T::const_iterator begin, typename T::const_iterator end)
+			{
+				int range = std::distance(begin, end);
+				if (range <= 0)
+					throw (std::range_error(std::string("Bad range")));
+				array.insert(array.end(), begin, end);
+			}
 
 };
 

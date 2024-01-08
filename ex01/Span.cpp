@@ -6,20 +6,20 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:25:52 by agengemb          #+#    #+#             */
-/*   Updated: 2024/01/03 18:12:01 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:35:05 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 Span::Span(size_t max_size)
-    : max_size(max_size)
+	: max_size(max_size)
 {
 
 }
 
 Span::Span(Span const& toCopy)
-    : max_size(toCopy.max_size)
+	: max_size(toCopy.max_size)
 {
 	std::vector<int> array(toCopy.array);
 	this->array = array;
@@ -27,13 +27,13 @@ Span::Span(Span const& toCopy)
 
 Span& Span::operator=(Span const& toAffect)
 {
-    if (this != &toAffect)
-    {
+	if (this != &toAffect)
+	{
 		std::vector<int> array(toAffect.array);
 		this->array = array;
 		max_size = toAffect.max_size;
-    }
-    return (*this);
+	}
+	return (*this);
 }
 
 Span::~Span(void)

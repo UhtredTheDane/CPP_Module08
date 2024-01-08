@@ -12,80 +12,16 @@
 
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
 #include "MutantStack.hpp"
 
-template <typename T>
-void test_regular_iterator(MutantStack<T>& mstack)
-{
-	MutantStack<T>::iterator it = mstack.begin();
-	MutantStack<T>::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite)
-	{
-		std::cout << *it << " ";
-		++it;
-	}
-	std::cout << std::endl;
-}
-
-template <typename T>
-void test_const_iterator(MutantStack<T>& mstack)
-{
-	MutantStack<T>::const_iterator it = mstack.cbegin();
-	MutantStack<T>::const_iterator ite = mstack.cend();
-	++it;
-	--it;
-	while (it != ite)
-	{
-		std::cout << *it << " ";
-		//*it = *it * 2;
-		++it;
-	}
-	std::cout << std::endl;
-}
-
-template <typename T>
-void test_reverse_iterator(MutantStack<T>& mstack)
-{
-	MutantStack<T>::reverse_iterator it = mstack.rbegin();
-	MutantStack<T>::reverse_iterator ite = mstack.rend();
-	++it;
-	--it;
-	while (it != ite)
-	{
-		std::cout << *it << " ";
-		++it;
-	std::cout << std::endl;
-}
-
-template <typename T>
-void test_copy_constructor(MutantStack<T>& mstack)
-{
-	std::stack<T> temp(mstack);
-	std::cout << "temp's adress: ";
-	temp.getPtrStack();
-	std::cout << "mstack's adress: ";
-	mstack.getPtrStack();
-}
-template <typename T>
-void test_assignment_operator(MutantStack<T>& mstack)
-{
-	MutantStack<T> temp;
-	temp = mstack;
-	std::cout << "mstack's adress: ";
-	e.getPtrStack();
-	std::cout << "t's adress: ";
-	t.getPtrStack();
-}
-
-int main(void)
+void int_test(void)
 {
 	MutantStack<int> mstack;
 	MutantStack<int> e;
 
 	e.push(5);
-	std::cout << "top of e:" << e.top() << std::endl;
+	std::cout << "top of e: " << e.top() << std::endl;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << "top of mstack: " << mstack.top() << std::endl;
@@ -98,5 +34,48 @@ int main(void)
 	for (int i = 0; i < 5; ++i)
 		mstack.push(rand() % 2000);
 	mstack.push(0);
+
+	regular_iterator_test(mstack);
+	const_iterator_test(mstack);
+	reverse_iterator_test(mstack);
+	const_reverse_iterator_test(mstack);
+	copy_constructor_test(mstack);
+	assignment_operator_test(mstack);
+}
+
+void char_test(void)
+{
+	MutantStack<char> mstack;
+	MutantStack<char> e;
+
+	e.push('a');
+	std::cout << "top of e: " << e.top() << std::endl;
+	mstack.push('a');
+	mstack.push('b');
+	mstack.push('c');
+	std::cout << "top of mstack: " << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << "size of mstack: " << mstack.size() << std::endl;
+	mstack.push('d');
+	mstack.push('e');
+	mstack.push('f');
+	for (char c = 'g'; c != 'z'; ++c)
+		mstack.push(c);
+	mstack.push('z');
+
+	regular_iterator_test(mstack);
+	const_iterator_test(mstack);
+	reverse_iterator_test(mstack);
+	const_reverse_iterator_test(mstack);
+	copy_constructor_test(mstack);
+	assignment_operator_test(mstack);
+}
+
+int main(void)
+{
+	std::cout << "Int MutantStack test:\n" << std::endl;
+	int_test();
+	std::cout << "\n\nChar MutantStack test:\n" << std::endl;
+	char_test();
 	return (0);
 }

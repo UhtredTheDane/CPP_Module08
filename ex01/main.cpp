@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:25:00 by agengemb          #+#    #+#             */
-/*   Updated: 2024/01/03 18:20:48 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:34:59 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static void out_of_range_test(void)
 {
 	Span sp = Span(5);
-	
+
 	try
 	{
 		sp.addNumber(6);
@@ -93,7 +93,7 @@ static void other_container_test(void)
 	Span sp = Span(200);
 	std::list<int>::iterator begin = lst.begin();
 	std::list<int>::iterator end = lst.end();
-	
+
 	try
 	{
 		sp.addSeveralNumbers<std::list<int> >(begin, end);

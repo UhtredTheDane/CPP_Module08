@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:17:02 by agengemb          #+#    #+#             */
-/*   Updated: 2023/12/29 14:17:15 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:34:48 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void deque_test(void)
 static void set_test(void)
 {
 	std::set<float> test;
-	
+
 	test.insert(45.);
 	test.insert(20.);
 	test.insert(105);
