@@ -81,7 +81,7 @@ static void several_number_test(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	for (int i = 0; i < 10; ++i)
+	for (int i = 0; i < 10000; ++i)
 		sp2.addNumber(rand() % 2000);
 	std::cout << "Shortest Sp2: " << sp2.shortestSpan() << std::endl;
 	std::cout << "Shortest Sp2: " << sp2.longestSpan() << "\n\n";
