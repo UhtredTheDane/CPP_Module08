@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:25:52 by agengemb          #+#    #+#             */
-/*   Updated: 2024/01/08 17:35:05 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:55:51 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Span::Span(size_t max_size)
 }
 
 Span::Span(Span const& toCopy)
-	: max_size(toCopy.max_size)
+	: max_size(toCopy.max_size),
+	array(toCopy.array)
 {
-	std::vector<int> array(toCopy.array);
-	this->array = array;
+
 }
 
 Span& Span::operator=(Span const& toAffect)
