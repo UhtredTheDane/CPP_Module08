@@ -6,7 +6,7 @@
 /*   By: agengemb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:25:00 by agengemb          #+#    #+#             */
-/*   Updated: 2024/01/08 17:34:59 by agengemb         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:49:43 by agengemb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,17 @@ static void several_number_test(void)
 {
 	srand(time(0));
 	Span sp = Span(10000);
-	for (int i = 0; i < 10000; ++i)
-		sp.addNumber(rand() % 200);
-	std::cout << "Shortest Sp: " << sp.shortestSpan() << std::endl;
-	std::cout << "Shortest Sp: " << sp.longestSpan() << "\n\n";
+	try
+	{
+		for (int i = 0; i < 10000; ++i)
+			sp.addNumber(rand() % 200);
+		std::cout << "Shortest Sp: " << sp.shortestSpan() << std::endl;
+		std::cout << "Shortest Sp: " << sp.longestSpan() << "\n\n";
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	Span sp2 = Span(20000);
 	try
@@ -81,10 +88,17 @@ static void several_number_test(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	for (int i = 0; i < 10000; ++i)
-		sp2.addNumber(rand() % 2000);
-	std::cout << "Shortest Sp2: " << sp2.shortestSpan() << std::endl;
-	std::cout << "Shortest Sp2: " << sp2.longestSpan() << "\n\n";
+	try
+	{
+		for (int i = 0; i < 10000; ++i)
+			sp2.addNumber(rand() % 2000);
+		std::cout << "Shortest Sp2: " << sp2.shortestSpan() << std::endl;
+		std::cout << "Shortest Sp2: " << sp2.longestSpan() << "\n\n";
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 static void other_container_test(void)
